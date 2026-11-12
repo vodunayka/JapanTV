@@ -1,0 +1,100 @@
+
+name: Update Japan TV playlist
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+  push:
+    paths:
+      - ".github/workflows/update-playlist.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build Japanese playlist
+        run: |
+          python - <<'PY'
+          import json
+          import urllib.request
+          from pathlib import Path
+
+          source = (
+              "https://dearbulut.github.io/iptv/"
+              "api/v1/by-country/jp.json"
+          )
+
+          req = urllib.request.Request(
+              source,
+              headers={"User-Agent": "JapanTV-playlist-builder"}
+          )
+
+          with urllib.request.urlopen(req, timeout=60) as response:
+              channels = json.load(response)
+
+          result = []
+          seen = set()
+
+          for channel in channels:
+              if not channel.get("online"):
+                  continue
+
+              streams = channel.get("streams") or []
+              stream = next(
+                  (
+                      s for s in streams
+                      if s.get("url")
+                      and s.get("health", {}).get("status") == "online"
+                  ),
+                  None
+              )
+
+              if stream is None:
+                  continue
+
+              name = channel.get("name") or channel.get("id")
+              url = stream["url"]
+
+              if not name or url in seen:
+                  continue
+
+              seen.add(url)
+              result.append({
+                  "channel-name": name,
+                  "url": url,
+                  "group-title": "Japan"
+              })
+
+          result.sort(key=lambda item: item["channel-name"].lower())
+
+          if not result:
+              raise RuntimeError(
+                  "No online Japanese streams found; "
+                  "keeping the previous playlist."
+              )
+
+          path = Path("all/playlist.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+
+          print(f"Created playlist with {len(result)} streams")
+          PY
+
+      - name: Commit playlist
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update Japanese TV playlist"
+          file_pattern: all/playlist.json
