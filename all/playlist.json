@@ -21,7 +21,7 @@
   },
   {
     "channel-name": "NHK World-Japan",
-    "url": "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8",
+    "url": "https://nhk.lls.pbs.org/index.m3u8",
     "group-title": "Japan"
   },
   {
