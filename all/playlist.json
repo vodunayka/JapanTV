@@ -21,7 +21,7 @@
   },
   {
     "channel-name": "NHK World-Japan",
-    "url": "https://cdn.pishow.tv/ott/live/455/master.m3u8",
+    "url": "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8",
     "group-title": "Japan"
   },
   {
@@ -42,6 +42,11 @@
   {
     "channel-name": "TV Tokyo",
     "url": "https://tvtokyo.mov3.co/hls/tvtokyo.m3u8",
+    "group-title": "Japan"
+  },
+  {
+    "channel-name": "TV-U Yamagata",
+    "url": "https://tv-stream-test.daydreamer-json.cc/stream/1668b5a43560598b385ccf33fd2d5f43/master.m3u8",
     "group-title": "Japan"
   },
   {
