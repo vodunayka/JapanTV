@@ -1,12 +1,32 @@
 [
   {
+    "channel-name": "Cartoon Network",
+    "url": "http://103.255.250.188:5002/cs25.m3u8?token=guoziyun&gid=cs25&channel=zhongying",
+    "group-title": "Japan"
+  },
+  {
     "channel-name": "CGNTV Japan",
     "url": "https://d2p4mrcwl6ly4.cloudfront.net/out/v1/8d50f69fdbbf411a8d302743e4263716/CGNWebLiveJP.m3u8",
     "group-title": "Japan"
   },
   {
+    "channel-name": "Disney Channel",
+    "url": "http://103.255.250.188:5002/bs24.m3u8?token=guoziyun&gid=bs24&channel=zhongying",
+    "group-title": "Japan"
+  },
+  {
+    "channel-name": "Fuji TV",
+    "url": "https://fujitv4.mov3.co/hls/fujitv.m3u8",
+    "group-title": "Japan"
+  },
+  {
     "channel-name": "GSTV",
     "url": "https://japaneast.av.mk.io/mediakindcdn-mediakind/ca01a143-f823-4432-b670-c22ff9643ce4/index.qfm/manifest(format=m3u8-cmaf)",
+    "group-title": "Japan"
+  },
+  {
+    "channel-name": "MTV",
+    "url": "http://103.255.250.188:5002/cs18.m3u8?token=guoziyun&gid=cs18&channel=zhongying",
     "group-title": "Japan"
   },
   {
@@ -35,8 +55,18 @@
     "group-title": "Japan"
   },
   {
+    "channel-name": "Sakuranbo TV",
+    "url": "https://tv-stream-test.daydreamer-json.cc/stream/bd2dd29080c36c9b01338d329156febe/master.m3u8",
+    "group-title": "Japan"
+  },
+  {
     "channel-name": "Shop Channel",
     "url": "https://stream3.shopch.jp/HLS/master.m3u8",
+    "group-title": "Japan"
+  },
+  {
+    "channel-name": "TV Asahi",
+    "url": "https://tvasahi.mov3.co/hls/tvasahi.m3u8",
     "group-title": "Japan"
   },
   {
@@ -52,6 +82,11 @@
   {
     "channel-name": "Weathernews",
     "url": "https://rch01e-alive-hls.akamaized.net/38fb45b25cdb05a1/out/v1/4e907bfabc684a1dae10df8431a84d21/index.m3u8",
+    "group-title": "Japan"
+  },
+  {
+    "channel-name": "YTS Yamagata TV",
+    "url": "https://tv-stream-test.daydreamer-json.cc/stream/407fd00ebd2a059c9cd1ea3fa7156097/master.m3u8",
     "group-title": "Japan"
   }
 ]
